@@ -15,16 +15,15 @@ export function run() {
   window.self = window;
   require('whatwg-fetch');
 
-  const store = createStore(window['--app-initial']);
+  const store = createStore(window.devToolsExtension && window.devToolsExtension());
   setAsCurrentStore(store);
 
   render(
     <Provider store={store} >
-      <Router history={browserHistory}>{createRoutes({store, first: { time: true }})}</Router>
+      <Router history={browserHistory}>{createRoutes({ store, first: { time: true } })}</Router>
     </Provider>,
     document.getElementById('app')
   );
-
 }
 
 // Export it to render on the Golang sever, keep the name sync with -

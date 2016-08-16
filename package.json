@@ -1,7 +1,7 @@
 {
   "name": "go-starter-kit",
   "version": "0.1.0",
-  "description": "",
+  "description": "This project contains a quick starter kit for **Facebook React** Single Page Apps with **Golang** server side render and also with a set of useful features for rapid development of efficient applications.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
     "babel-preset-stage-0": "6.5.0",
     "css-loader": "^0.23.1",
     "cssrecipes-defaults": "^0.5.0",
+    "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-react": "^3.16.1",
     "expose-loader": "^0.7.1",
     "express": "^4.13.4",
@@ -61,27 +62,9 @@
     }
   },
   "eslintConfig": {
-    "rules": {
-      "indent": [
-        2,
-        2
-      ],
-      "quotes": [
-        2,
-        "single"
-      ],
-      "linebreak-style": [
-        2,
-        "unix"
-      ],
-      "semi": [
-        2,
-        "always"
-      ],
-      "react/jsx-uses-react": 2,
-      "react/jsx-uses-vars": 2,
-      "react/react-in-jsx-scope": 2
-    },
+    "extends": [
+      "airbnb"
+    ],
     "env": {
       "es6": true,
       "browser": true,
@@ -94,5 +77,5 @@
     "plugins": [
       "react"
     ]
-  }
+  },
 }
