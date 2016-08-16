@@ -7,7 +7,6 @@ import { example, p, link } from '../homepage/styles';
 import { setConfig } from '../../actions';
 
 class Usage extends Component {
-
   /*eslint-disable */
   static onEnter({store, nextState, replaceState, callback}) {
     fetch('/api/v1/conf').then((r) => {
@@ -21,8 +20,8 @@ class Usage extends Component {
   /*eslint-enable */
 
   render() {
-    return <div className={usage}>
-      <Helmet title='Usage' />
+    return (<div className={usage}>
+      <Helmet title="Usage" />
       <h2 className={example}>Usage:</h2>
       <div className={p}>
         <span className={todo}>// TODO: write an article</span>
@@ -30,10 +29,10 @@ class Usage extends Component {
           {JSON.stringify(this.props.config, null, 2)}</pre>
       </div>
       <br />
-      go <IndexLink to='/' className={link}>home</IndexLink>
-    </div>;
+      go <IndexLink to="/" className={link}>home</IndexLink>
+    </div>);
   }
 
 }
 
-export default connect(store => ({ config: store.config }))(Usage);
+export default connect(store => ({ config: store.configReducer }))(Usage);

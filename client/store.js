@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
-import reducers from './reducers';
+import rootReducer from './rootReducer.js';
 
 const middlewares = [];
 
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 export function createStore(state) {
   return reduxCreateStore(
-    reducers,
+    rootReducer,
     state,
     applyMiddleware.apply(null, middlewares)
   );

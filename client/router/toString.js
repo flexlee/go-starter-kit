@@ -13,29 +13,28 @@ import { createStore, setAsCurrentStore } from '../store';
  * @param   {Function} cbk      response callback
  */
 export default function (options, cbk) {
-
-  let result = {
+  const result = {
     uuid: options.uuid,
     app: null,
     title: null,
     meta: null,
     initial: null,
     error: null,
-    redirect: null
+    redirect: null,
   };
 
   const store = createStore();
   setAsCurrentStore(store);
 
   try {
-    match({ routes: createRoutes({store, first: { time: false }}), location: options.url }, (error, redirectLocation, renderProps) => {
+    match({ routes: createRoutes({
+      store, first: { time: false },
+    }), location: options.url }, (error, redirectLocation, renderProps) => {
       try {
         if (error) {
           result.error = error;
-
         } else if (redirectLocation) {
           result.redirect = redirectLocation.pathname + redirectLocation.search;
-
         } else {
           result.app = renderToString(
             <Provider store={store}>
@@ -56,4 +55,5 @@ export default function (options, cbk) {
     result.error = e;
     return cbk(JSON.stringify(result));
   }
+  return null;
 }

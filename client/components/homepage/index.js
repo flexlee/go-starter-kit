@@ -12,24 +12,26 @@ export default class Homepage extends Component {
   /*eslint-enable */
 
   render() {
-    return <div>
-      <Helmet
-        title='Home page'
-        meta={[
-          {
-            property: 'og:title',
-            content: 'Golang Isomorphic React/Hot Reloadable/Redux/Css-Modules Starter Kit'
-          }
-        ]} />
-      <h1 className={example}>
+    return (
+      <div>
+        <Helmet
+          title="Home page"
+          meta={[
+            {
+              property: 'og:title',
+              content: 'Golang Isomorphic React/Hot Reloadable/Redux/Css-Modules Starter Kit',
+            },
+          ]}
+        />
+        <h1 className={example}>
         Hot Reloadable <br />
         Golang + React + Redux + Css-Modules
         <br />Isomorphic Starter Kit</h1>
-      <br />
-      <p className={p}>
-        Please take a look at <Link className={link} to='/docs'>usage</Link> page.
-      </p>
-    </div>;
+        <br />
+        <p className={p}>
+        Please take a look at <Link className={link} to="/docs">usage</Link> page.
+        </p>
+      </div>
+    );
   }
-
 }

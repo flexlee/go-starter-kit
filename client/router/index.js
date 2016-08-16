@@ -8,7 +8,7 @@ import createRoutes from './routes';
 import { createStore, setAsCurrentStore } from '../store';
 
 
-export function run() {
+export function runRouter() {
   // init promise polyfill
   window.Promise = window.Promise || Promise;
   // init fetch polyfill
@@ -20,7 +20,9 @@ export function run() {
 
   render(
     <Provider store={store} >
-      <Router history={browserHistory}>{createRoutes({ store, first: { time: true } })}</Router>
+      <Router history={browserHistory}>
+        { createRoutes({ store, first: { time: true } }) }
+      </Router>
     </Provider>,
     document.getElementById('app')
   );
@@ -40,7 +42,7 @@ if (module.hot) {
     const a = document.createElement('a');
     const link = document.querySelector('link[rel="stylesheet"]');
     a.href = link.href;
-    a.search = '?' + c++;
+    a.search = `?${c++}`;
     link.href = a.href;
   });
 }

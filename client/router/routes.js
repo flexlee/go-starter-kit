@@ -13,8 +13,7 @@ import NotFound from '#app/components/not-found';
  * @param {Object} - any data for static loaders and first-time-loading marker
  * @returns {Object} - configured routes
  */
-export default ({store, first}) => {
-
+export default ({ store, first }) => {
   // Make a closure to skip first request
   function w(loader) {
     return (nextState, replaceState, callback) => {
@@ -22,16 +21,18 @@ export default ({store, first}) => {
         first.time = false;
         return callback();
       }
-      return loader ? loader({store, nextState, replaceState, callback}) : callback();
+      return loader ? loader({ store, nextState, replaceState, callback }) : callback();
     };
   }
 
-  return <Route path="/" component={App}>
-    <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)}/>
-    <Route path="/usage" component={Usage} onEnter={w(Usage.onEnter)}/>
-    <Route path="/test" component={Test} onEnter={w(Usage.onEnter)}/>
-    {/* Server redirect in action */}
-    <Redirect from="/docs" to="/usage" />
-    <Route path="*" component={NotFound} onEnter={w(NotFound.onEnter)}/>
-  </Route>;
+  return (
+    <Route path="/" component = {App}>
+      <IndexRoute component = {Homepage} onEnter = {w(Homepage.onEnter)} />
+      <Route path="/usage" component = {Usage} onEnter = {w(Usage.onEnter)} />
+      <Route path="/test" component = {Test} onEnter = {w(Usage.onEnter)} />
+      {/* Server redirect in action */}
+      <Redirect from="/docs" to = "/usage" />
+      <Route path = "*" component = {NotFound} onEnter = {w(NotFound.onEnter)} />
+    </Route>
+  );
 };
