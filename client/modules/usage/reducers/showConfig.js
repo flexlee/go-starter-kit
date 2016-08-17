@@ -1,12 +1,10 @@
-import { SET_CONFIG } from '../../actions';
-
 const initialState = {
   CONFIG: null,
 };
 
-const configReducer = (state = initialState, action) => {
+const showConfig = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CONFIG:
+    case 'SET_CONFIG':
       return {
         ...state,
         CONFIG: action.config,
@@ -16,4 +14,4 @@ const configReducer = (state = initialState, action) => {
   }
 };
 
-export default configReducer;
+export default showConfig;

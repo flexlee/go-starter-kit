@@ -60,7 +60,7 @@ const config = {
     extensions: ['', '.js', '.jsx', '.css'],
     alias: {
       '#app': path.join(__dirname, 'client'),
-      '#c': path.join(__dirname, 'client/components'),
+      '#c': path.join(__dirname, 'client/modules'),
       '#css': path.join(__dirname, 'client/css')
     }
   },

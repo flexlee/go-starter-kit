@@ -59,7 +59,7 @@ It's simple React application
 $ tree client
 client
 ├── actions.js
-├── components
+├── modules
 │   ├── app
 │   │   ├── favicon.ico
 │   │   ├── index.js

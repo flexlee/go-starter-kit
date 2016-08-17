@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import configReducer from './components/usage/reducer.js';
+import usageReducers from './modules/usage/reducers';
 
 const rootReducer = combineReducers({
-  configReducer,
+  ...usageReducers,
 });
 
 export default rootReducer;

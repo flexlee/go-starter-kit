@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
-import App from '#app/components/app';
-import Homepage from '#app/components/homepage';
-import Usage from '#app/components/usage';
-import Test from '#app/components/test';
-import NotFound from '#app/components/not-found';
+import App from '#app/modules/app';
+import Homepage from '#app/modules/homepage';
+import Usage from '#app/modules/usage/components/Usage.js';
+import Test from '#app/modules/test';
+import NotFound from '#app/modules/not-found';
 
 /**
  * Returns configured routes for different

@@ -15,7 +15,12 @@ export function runRouter() {
   window.self = window;
   require('whatwg-fetch');
 
-  const store = createStore(window.devToolsExtension && window.devToolsExtension());
+  let store;
+  if (process.env.NODE_ENV === 'development') {
+    store = createStore(window['--app-initial'] && window.devToolsExtension());
+  } else {
+    store = createStore(window['--app-initial']);
+  }
   setAsCurrentStore(store);
 
   render(
