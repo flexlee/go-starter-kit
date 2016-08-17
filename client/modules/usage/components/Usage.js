@@ -21,6 +21,7 @@ class Usage extends Component {
   /*eslint-enable */
 
   render() {
+    console.log(process.env);
     return (
       <div className={usage}>
         <Helmet title="Usage" />

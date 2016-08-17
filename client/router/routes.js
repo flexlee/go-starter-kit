@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
-import App from '#app/modules/app';
+// import App from '#app/modules/app';
+import AppLayout from '#app/modules/layout/components/Layout.js';
 import Homepage from '#app/modules/homepage';
 import Usage from '#app/modules/usage/components/Usage.js';
 import Test from '#app/modules/test';
@@ -26,13 +27,13 @@ export default ({ store, first }) => {
   }
 
   return (
-    <Route path="/" component = {App}>
-      <IndexRoute component = {Homepage} onEnter = {w(Homepage.onEnter)} />
+    <Route path="/" component={AppLayout}>
+      <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)} />
       <Route path="/usage" component = {Usage} onEnter = {w(Usage.onEnter)} />
       <Route path="/test" component = {Test} onEnter = {w(Usage.onEnter)} />
       {/* Server redirect in action */}
       <Redirect from="/docs" to = "/usage" />
-      <Route path = "*" component = {NotFound} onEnter = {w(NotFound.onEnter)} />
+      <Route path = "*" component={NotFound} onEnter = {w(NotFound.onEnter)} />
     </Route>
   );
 };

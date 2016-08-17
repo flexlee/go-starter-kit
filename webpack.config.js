@@ -16,6 +16,13 @@ let plugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.DedupePlugin(),
   new ExtractTextPlugin('bundle.css'),
+  new webpack.DefinePlugin({
+    'process.env': {
+      API_URL: JSON.stringify(process.env.API_URL),
+      AUTH0_CLIENT_ID: JSON.stringify(process.env.AUTH0_CLIENT_ID),
+      AUTH0_CLIENT_DOMAIN: JSON.stringify(process.env.AUTH0_CLIENT_DOMAIN),
+    },
+  }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -34,14 +41,14 @@ if (process.env.NODE_ENV === 'production') {
 
 const config = {
   entry: {
-    bundle: path.join(__dirname, 'client/index.js')
+    bundle: path.join(__dirname, 'client/index.js'),
   },
   output: {
     path: path.join(__dirname, 'server/data/static/build'),
     publicPath: '/static/build/',
-    filename: '[name].js'
+    filename: '[name].js',
   },
-  plugins: plugins,
+  plugins,
   module: {
     loaders: [
       { test: /\.css/, loader: ExtractTextPlugin.extract('style-loader', postCssLoader.join('')) },
