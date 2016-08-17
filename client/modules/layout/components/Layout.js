@@ -12,7 +12,7 @@ export default class AppLayout extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme, { userAgent: 'all' })}>
         <AppCanvas>
         <header>
           <AppBar title="My AppBar" />

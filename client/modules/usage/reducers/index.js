@@ -1,4 +1,4 @@
-import showConfig from './showConfig';
+import { showConfig } from './showConfig.js';
 
 export default {
   showConfig,

@@ -7,7 +7,7 @@ import { example, p, link } from '#app/modules/homepage/styles';
 import actions from '../actions';
 
 
-class Usage extends Component {
+export default class Usage extends Component {
   /*eslint-disable */
   static onEnter({store, nextState, replaceState, callback}) {
     fetch('/api/v1/conf').then((r) => {
@@ -21,15 +21,22 @@ class Usage extends Component {
   /*eslint-enable */
 
   render() {
-    console.log(process.env);
+    console.log(this.props);
     return (
       <div className={usage}>
         <Helmet title="Usage" />
         <h2 className={example}>Usage:</h2>
         <div className={p}>
-          <span className={todo}>// TODO: write an article</span>
-          <pre className={todo}>config:
-            {JSON.stringify(this.props.config, null, 2)}</pre>
+          <span className={todo} onClick={this.props.onClick}>
+            Clean Config
+          </span>
+          <span className={todo} onClick={this.props.loadConfig}>
+            Load Config
+          </span>
+          <pre className={todo}>
+            config:
+            {JSON.stringify(this.props.config, null, 2)}
+          </pre>
         </div>
         <br />
         go <IndexLink to="/" className={link}>home</IndexLink>
@@ -39,4 +46,4 @@ class Usage extends Component {
 
 }
 
-export default connect(store => ({ config: store.showConfig }))(Usage);
+// export default connect(store => ({ config: store.showConfig }))(Usage);

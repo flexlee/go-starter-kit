@@ -80,5 +80,8 @@
     "plugins": [
       "react"
     ]
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.3.1"
   }
 }
