@@ -29,7 +29,7 @@ export default ({ store, first }) => {
   return (
     <Route path="/" component={AppLayout}>
       <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)} />
-      <Route path="/usage" component = {Usage} onEnter={w(Usage.onEnter)} />
+      <Route path="/usage" component = {Usage} />
       <Route path="/test" component = {Test} onEnter={w(Usage.onEnter)} />
       {/* Server redirect in action */}
       <Redirect from="/docs" to = "/usage" />

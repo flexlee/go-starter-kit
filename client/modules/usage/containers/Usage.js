@@ -7,10 +7,10 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick: () => {
+  cleanConfigClick: () => {
     dispatch(actions.cleanConfig());
   },
-  loadConfig: () => {
+  loadConfigClick: () => {
     fetch('/api/v1/conf').then((r) => {
       return r.json();
     }).then((conf) => {

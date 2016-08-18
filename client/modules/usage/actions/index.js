@@ -1,7 +1,7 @@
-import { showConfig } from './showConfig.js';
-import { cleanConfig } from './cleanConfig.js';
+import { showConfig, cleanConfig, showRandom } from './showConfig.js';
 
 export default {
   cleanConfig,
   showConfig,
+  showRandom,
 };

@@ -1,5 +1,5 @@
 const initialState = {
-  CONFIG: '',
+  CONFIG: 'config',
 };
 
 export const showConfig = (state = initialState, action) => {
@@ -13,6 +13,11 @@ export const showConfig = (state = initialState, action) => {
       return {
         ...state,
         CONFIG: '',
+      };
+    case 'SHOW_RANDOM':
+      return {
+        ...state,
+        CONFIG: action.random,
       };
     default:
       return state;
