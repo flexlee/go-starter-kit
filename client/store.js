@@ -1,23 +1,48 @@
-import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import rootReducer from './rootReducer.js';
+import createLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 
-const middlewares = [];
+const middlewares = [
+  thunkMiddleware,
+];
 
 // Add state logger
+let devtools;
+
 if (process.env.NODE_ENV !== 'production') {
-  middlewares.push(require('redux-logger')());
+  middlewares.push(createLogger());
+  devtools = window.devToolsExtension();
+} else {
+  devtools = f => f;
 }
 
-export function createStore(state) {
-  return reduxCreateStore(
+// Add state logger
+// if (process.env.NODE_ENV !== 'production') {
+//   console.log(window.devToolsExtension);
+//   if (typeof window === 'object' && window.devToolsExtension) {
+//     devtools = window.devToolsExtension();
+//     devtools = f => f;
+//   } else {
+//     middlewares.push(createLogger());
+//     devtools = f => f;
+//   }
+// } else {
+//   devtools = f => f;
+// }
+
+export function configureStore(preloadedState) {
+  return createStore(
     rootReducer,
-    state,
-    applyMiddleware.apply(null, middlewares)
+    preloadedState,
+    compose(
+      applyMiddleware(...middlewares),
+      devtools,
+    )
   );
 }
 
 export let store = null;
-export function getStore() { return store; }
 export function setAsCurrentStore(s) {
   store = s;
   if (process.env.NODE_ENV !== 'production'

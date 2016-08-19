@@ -22,6 +22,7 @@ export default class Usage extends Component {
   static propTypes = {
     cleanConfigClick: PropTypes.func,
     loadConfigClick: PropTypes.func,
+    loadRandomClick: PropTypes.func,
     config: PropTypes.object,
   };
 
@@ -40,6 +41,13 @@ export default class Usage extends Component {
             label="Load Config"
             style={style}
             onClick={this.props.loadConfigClick}
+            primary
+          />
+          <RaisedButton
+            type="button"
+            label="Load Random"
+            style={style}
+            onClick={this.props.loadRandomClick}
             primary
           />
           <RaisedButton

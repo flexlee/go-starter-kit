@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import toString from './toString';
 import { Promise } from 'when';
 import createRoutes from './routes';
-import { createStore, setAsCurrentStore } from '../store';
+import { configureStore, setAsCurrentStore } from '../store';
 
 
 export function runRouter() {
@@ -15,12 +15,7 @@ export function runRouter() {
   window.self = window;
   require('whatwg-fetch');
 
-  let store;
-  if (process.env.NODE_ENV === 'development') {
-    store = createStore(window['--app-initial'] && window.devToolsExtension());
-  } else {
-    store = createStore(window['--app-initial']);
-  }
+  let store = configureStore(window['--app-initial']);
   setAsCurrentStore(store);
 
   render(

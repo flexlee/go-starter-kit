@@ -1,7 +1,11 @@
-import { showConfig, cleanConfig, showRandom } from './showConfig.js';
+import {
+  cleanConfigClick,
+  loadConfigClick,
+  loadRandomClick,
+} from './showConfig.js';
 
 export default {
-  cleanConfig,
-  showConfig,
-  showRandom,
+  cleanConfigClick,
+  loadConfigClick,
+  loadRandomClick,
 };

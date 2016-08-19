@@ -4,7 +4,6 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 import AppLayout from '#app/modules/layout/components/Layout.js';
 import Homepage from '#app/modules/homepage';
 import Usage from '#app/modules/usage/containers/Usage.js';
-import Test from '#app/modules/test';
 import NotFound from '#app/modules/not-found';
 
 /**
@@ -30,7 +29,6 @@ export default ({ store, first }) => {
     <Route path="/" component={AppLayout}>
       <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)} />
       <Route path="/usage" component = {Usage} />
-      <Route path="/test" component = {Test} onEnter={w(Usage.onEnter)} />
       {/* Server redirect in action */}
       <Redirect from="/docs" to = "/usage" />
       <Route path = "*" component={NotFound} onEnter={w(NotFound.onEnter)} />
